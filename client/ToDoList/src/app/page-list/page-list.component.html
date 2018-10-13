@@ -1,14 +1,14 @@
+<app-template-header></app-template-header>
 <div class="list-view">
     <div class="todo-elements">
         <div class="todo-element" *ngFor="let todo$ of $todos">
-            <h4>{{ todo$.label }}</h4>
-            <p>{{ todo$.description }}</p>
+            <app-template-todo></app-template-todo>
         </div>
+        <app-template-todo-form></app-template-todo-form>
     </div>
     <div class="todo-elements-done">
-        <div class="todo-element" *ngFor="let todo$ of $todosdone">
-            <h4>{{ todo$.label }}</h4>
-            <p>{{ todo$.description }}</p>
+        <div class="todo-element" *ngFor="let todo$ of $todos">
+            <app-template-todo></app-template-todo>
         </div>
     </div>
 </div>
