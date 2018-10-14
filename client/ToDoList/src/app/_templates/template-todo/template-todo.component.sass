@@ -15,15 +15,12 @@
     align-items: stretch
     height: 100%
     cursor: grab
-
-
     .todo-content
         width: 100%
         display: flex
         flex-flow: row
         justify-content: flex-start
         align-items: stretch
-
         .todo-content-check
             display: flex
             margin: $cube*2
@@ -31,14 +28,11 @@
             justify-content: center
             align-items: center
             cursor: pointer
-
             img
                 width: $cube*2
                 height: $cube*2
-
         .todo-content-titel
             width: 100%
-
             input
                 font-family: $font2
                 font-size: $cube*2
@@ -47,14 +41,11 @@
                 width: 100%
                 border: none
                 word-break: break-word
-
             input::placeholder
                 opacity: 0.5
                 font-style: italic
-            
             input:focus
                 outline: none
-
     .delete
         background-color: $red
         color: $white
@@ -62,7 +53,6 @@
         font-size: $cube*2
         padding: $cube*2
         cursor: pointer
-
         span
             height: 100%
             width: 100%
@@ -70,3 +60,9 @@
             flex-flow: row
             justify-content: center
             align-items: center
+.todo.done
+    .todo-content
+        .todo-content-titel
+            input
+                opacity: 0.3
+                text-decoration: line-through

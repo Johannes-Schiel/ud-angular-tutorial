@@ -1,4 +1,4 @@
-<div class="todo">
+<div class="todo" [class.done]="toDo$.status">
     <div class="todo-content">
         <div class="todo-content-check">
             <img *ngIf="!toDo$.status" (click)="changeCheck($event)" src="./assets/svg/checkbox-empty.svg">

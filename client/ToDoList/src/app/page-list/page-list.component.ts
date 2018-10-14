@@ -13,10 +13,16 @@ export class PageListComponent implements OnInit {
 
     public $todos: any;
     public $todosdone: any;
+    public toDoDoneShow: boolean;
+    public toDoShow: boolean;
 
     constructor(
         public _dataService: DataService
     ) {
+        this.$todos = [];
+        this.$todosdone = [];
+        this.toDoDoneShow = false;
+        this.toDoShow = true;
         this.loadData();
     }
 

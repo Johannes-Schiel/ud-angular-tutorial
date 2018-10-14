@@ -7,7 +7,6 @@
 .list-view
     width: 100%
     padding: $cube*2
-
     h4
         font-family: $font1
         color: $white
@@ -15,7 +14,12 @@
         margin: 0 0 $cube*2 0
         padding: 0
         font-weight: regular
-    
+        transition: all 250ms
+        cursor: pointer
+        span
+            font-size: $cube*1.5
+    h4:hover
+        color: $prime
     .todo-elements
         width: 100%
         margin: 0 0 $cube*2 0
