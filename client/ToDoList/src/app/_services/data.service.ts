@@ -9,7 +9,7 @@ import { ToDo } from '../_interface/todo';
 })
 export class DataService {
 
-    private serverUrl = 'http://localhost:3000/todo';
+    private serverUrl = 'http://localhost:3000';
 
     constructor(
         private _http: HttpClient
@@ -23,7 +23,7 @@ export class DataService {
                 'Content-Type': 'application/json'
             })
         };
-        return this._http.post<ToDo>(this.serverUrl, object, httpOptions );
+        return this._http.post<ToDo>(`${this.serverUrl}/todo`, object, httpOptions );
     }
 
     // GET
@@ -33,27 +33,17 @@ export class DataService {
                 'Content-Type': 'application/json'
             })
         };
-        return this._http.get<ToDo[]>(`${this.serverUrl}?${query}`, httpOptions);
+        return this._http.get<ToDo[]>(`${this.serverUrl}/todo?${query}`, httpOptions);
     }
 
     // DELETE
-    public deleteToDo(object: ToDo): Observable<ToDo> {
-        const httpOptions = {
-            headers: new HttpHeaders({
-                'Content-Type': 'application/json'
-            })
-        };
-        return this._http.delete<ToDo>(`${this.serverUrl}/${object.id}`, httpOptions);
+    public deleteToDo(object: ToDo) {
+        return this._http.delete(`${this.serverUrl}/todo/${object.id}`);
     }
 
     // PUT
-    public putToDo(object: ToDo): Observable<ToDo> {
-        const httpOptions = {
-            headers: new HttpHeaders({
-                'Content-Type': 'application/json'
-            })
-        };
-        return this._http.put<ToDo>(`${this.serverUrl}/${object.id}`, object, httpOptions);
+    public putToDo(object: ToDo) {
+        return this._http.put(`${this.serverUrl}/todo/${object.id}`, object);
     }
 
     // PUT
