@@ -1,9 +1,14 @@
 <div class="todo">
     <div class="todo-content">
-        <div class="todo-content-check"></div>
-        <div class="todo-content-titel"></div>
+        <div class="todo-content-check">
+            <img *ngIf="!toDo$.status" (click)="changeCheck($event)" src="./assets/svg/checkbox-empty.svg">
+            <img *ngIf="toDo$.status" (click)="changeCheck($event)" src="./assets/svg/checkbox-done.svg">
+        </div>
+        <div class="todo-content-titel">
+            <input type="text" [(ngModel)]="toDo$.label" placeholder="Name des ToDo-Punktes" (blur)="changeLabel($event)" (keyup)="changeLabel($event)">
+        </div>
     </div>
-    <div class="delete">
-        Löschen
+    <div class="delete" (click)="deleteToDo($event)">
+        <span>Löschen</span>
     </div>
 </div>

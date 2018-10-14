@@ -1,0 +1,72 @@
+@import '../../../style/var'
+
+// ##########################################################
+// ##########################################################
+// ##########################################################
+
+.todo
+    width: 100%
+    background-color: $white
+    border-left: $cube/2 $prime solid
+    margin: 0 0 $cube 0
+    display: flex
+    flex-flow: row
+    justify-content: space-between        
+    align-items: stretch
+    height: 100%
+    cursor: grab
+
+
+    .todo-content
+        width: 100%
+        display: flex
+        flex-flow: row
+        justify-content: flex-start
+        align-items: stretch
+
+        .todo-content-check
+            display: flex
+            margin: $cube*2
+            flex-flow: row
+            justify-content: center
+            align-items: center
+            cursor: pointer
+
+            img
+                width: $cube*2
+                height: $cube*2
+
+        .todo-content-titel
+            width: 100%
+
+            input
+                font-family: $font2
+                font-size: $cube*2
+                padding: $cube*2
+                color: $second
+                width: 100%
+                border: none
+                word-break: break-word
+
+            input::placeholder
+                opacity: 0.5
+                font-style: italic
+            
+            input:focus
+                outline: none
+
+    .delete
+        background-color: $red
+        color: $white
+        font-family: $font2
+        font-size: $cube*2
+        padding: $cube*2
+        cursor: pointer
+
+        span
+            height: 100%
+            width: 100%
+            display: flex
+            flex-flow: row
+            justify-content: center
+            align-items: center

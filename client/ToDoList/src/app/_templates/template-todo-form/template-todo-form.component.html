@@ -1,3 +1,8 @@
-<p>
-  template-todo-form works!
-</p>
+<div class="todo-form">
+    <div class="todo-content">
+        <input type="text" [(ngModel)]="toDo$.label" placeholder="Name des ToDo-Punktes" (keyup.enter)="createToDo($event)">
+    </div>
+    <div class="create" (click)="createToDo($event)">
+        <span>Erstellen</span>
+    </div>
+</div>

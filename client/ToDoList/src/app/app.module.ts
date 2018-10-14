@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { PageListComponent } from './page-list/page-list.component';
@@ -8,17 +10,19 @@ import { TemplateTodoFormComponent } from './_templates/template-todo-form/templ
 import { TemplateHeaderComponent } from './_templates/template-header/template-header.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    PageListComponent,
-    TemplateTodoComponent,
-    TemplateTodoFormComponent,
-    TemplateHeaderComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        PageListComponent,
+        TemplateTodoComponent,
+        TemplateTodoFormComponent,
+        TemplateHeaderComponent
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpClientModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
