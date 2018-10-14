@@ -1,7 +1,6 @@
-import { Component, OnInit, Input, Output, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DataService } from '../_services/data.service';
-import { Observable, Subject, throwError, Subscription, pipe } from 'rxjs';
-import { map, catchError, tap } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
 import { ToDo } from '../_interface/todo';
 import { DragulaService } from 'ng2-dragula';
 
@@ -40,37 +39,42 @@ export class PageListComponent implements OnInit, OnDestroy {
 
     }
 
-    ngOnInit() {
-    }
+    ngOnInit() {}
 
-    ngOnDestroy() {
-        this.subs.unsubscribe();
-    }
+    ngOnDestroy() { this.subs.unsubscribe(); }
 
+    // Function zu laden der Datensätze
     public loadData(): void {
-        this._dataService.getToDo('status=false').subscribe((data: ToDo[]) => {
-            this.$todos = data;
-        });
-        this._dataService.getToDo('status=true').subscribe((data: ToDo[]) => {
-            this.$todosdone = data;
+        this.$todosdone = [];
+        this.$todos = [];
+        this._dataService.getToDo().subscribe((data: ToDo[]) => {
+            data.forEach((toDo: ToDo) => {
+                if (toDo.status === true) {
+                    this.$todosdone.push(toDo);
+                } else {
+                    this.$todos.push(toDo);
+                }
+            });
+            this.$todos.sort((obj1, obj2) => {
+                return obj1.position - obj2.position;
+            });
         });
     }
 
+    // Function um die Position der Objekte zu überschreiben
     public position(): void {
         let position = 0;
         this.$todos.forEach((todo: ToDo) => {
             position += 1;
             todo.position = position;
-        }); 
-        const toDos = this.$todos.concat(this.$todosdone);
-        this._dataService.putAllToDo(toDos).subscribe((data: any) => {
+            this._dataService.putToDo(todo).subscribe((data: ToDo) => {});
         });
+        this.loadData();
     }
 
     // Delte ToDo
     public update(event: any): void {
         this.loadData();
-        this.position();
     }
 
     // Create new ToDo

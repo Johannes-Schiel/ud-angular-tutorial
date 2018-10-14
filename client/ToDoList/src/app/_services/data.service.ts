@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
-import { Observable, Subject, throwError, Subscription, pipe } from 'rxjs';
-import { map, catchError, tap } from 'rxjs/operators';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { ToDo } from '../_interface/todo';
 
 @Injectable({
@@ -33,27 +32,33 @@ export class DataService {
                 'Content-Type': 'application/json'
             })
         };
-        return this._http.get<ToDo[]>(`${this.serverUrl}/todo?${query}`, httpOptions);
+        let url;
+        if (query !== undefined) {
+            url = `${this.serverUrl}/todo${query}`;
+        } else {
+            url = `${this.serverUrl}/todo`;
+        }
+        return this._http.get<ToDo[]>(url, httpOptions);
     }
 
     // DELETE
-    public deleteToDo(object: ToDo) {
-        return this._http.delete(`${this.serverUrl}/todo/${object.id}`);
-    }
-
-    // PUT
-    public putToDo(object: ToDo) {
-        return this._http.put(`${this.serverUrl}/todo/${object.id}`, object);
-    }
-
-    // PUT
-    public putAllToDo(object: ToDo): Observable<any> {
+    public deleteToDo(object: ToDo): Observable<ToDo> {
         const httpOptions = {
             headers: new HttpHeaders({
                 'Content-Type': 'application/json'
             })
         };
-        return this._http.put<any>(`${this.serverUrl}/`, object, httpOptions);
+        return this._http.delete<ToDo>(`${this.serverUrl}/todo/${object.id}`, httpOptions);
+    }
+
+    // PUT
+    public putToDo(object: ToDo): Observable<ToDo> {
+        const httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json'
+            })
+        };
+        return this._http.put<ToDo>(`${this.serverUrl}/todo/${object.id}`, object, httpOptions);
     }
 
 }

@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ToDo } from '../../_interface/todo';
-import { DataService } from '../../_services/data.service';
 
 @Component({
   selector: 'app-template-todo-form',
