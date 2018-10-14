@@ -56,5 +56,14 @@ export class DataService {
         return this._http.put<ToDo>(`${this.serverUrl}/${object.id}`, object, httpOptions);
     }
 
+    // PUT
+    public putAllToDo(object: ToDo): Observable<any> {
+        const httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json'
+            })
+        };
+        return this._http.put<any>(`${this.serverUrl}/`, object, httpOptions);
+    }
 
 }

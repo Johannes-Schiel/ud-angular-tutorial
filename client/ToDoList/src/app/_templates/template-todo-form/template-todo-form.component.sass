@@ -6,13 +6,13 @@
 
 .todo-form
     width: 100%
-    background-color: $prime
-    margin: 0 0 $cube 0
+    background-color: $white
+    margin: 0 0 $cube*2 0
     display: flex
     flex-flow: row
     justify-content: space-between        
     align-items: stretch
-    height: 100%
+    height: $cube*8
     cursor: grab
     .todo-content
         width: 100%
@@ -24,15 +24,15 @@
             font-family: $font2
             font-size: $cube*2
             padding: $cube*2
-            color: $white
-            background-color: $prime
+            color: $second
+            background-color: $white
             width: 100%
             border: none
             word-break: break-word
         input::placeholder
-            opacity: 0.8
+            opacity: 0.5
             font-style: italic
-            color: $prime-dark
+            color: $second
         input:focus
             outline: none
     .create
@@ -41,7 +41,7 @@
         font-size: $cube*2
         padding: $cube*2
         cursor: pointer
-        border-left: $cube*0.1 solid $prime-dark
+        background-color: $prime
         span
             height: 100%
             width: 100%

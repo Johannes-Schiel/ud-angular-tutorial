@@ -22,22 +22,24 @@ export class TemplateTodoComponent implements OnInit {
 
     // Function to update the Label
     public changeLabel(event?: any): void {
-        if ( event.timeStamp - this.lastKeypress > 200 ) {
-            this._dataService.putToDo(this.toDo$);
-        }
-        this.lastKeypress = event.timeStamp;
+        this._dataService.putToDo(this.toDo$).subscribe((data: ToDo) => {
+            this.ping.emit();
+        });
     }
 
     // Function
     public changeCheck(event?: any): void {
         this.toDo$.status = !this.toDo$.status;
-        this.ping.emit(this.toDo$);
+        this._dataService.putToDo(this.toDo$).subscribe((data: ToDo) => {
+            this.ping.emit();
+        });
     }
 
     // Function to Delete this Element
     public deleteToDo(): void {
-        this.ping.emit('delete');
-        this._dataService.deleteToDo(this.toDo$);
+        this._dataService.deleteToDo(this.toDo$).subscribe((data: ToDo) => {
+            this.ping.emit();
+        });
     }
 
 }

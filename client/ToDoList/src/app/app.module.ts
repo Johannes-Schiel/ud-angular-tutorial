@@ -9,6 +9,8 @@ import { TemplateTodoComponent } from './_templates/template-todo/template-todo.
 import { TemplateTodoFormComponent } from './_templates/template-todo-form/template-todo-form.component';
 import { TemplateHeaderComponent } from './_templates/template-header/template-header.component';
 
+import { DragulaModule } from 'ng2-dragula';
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -20,7 +22,8 @@ import { TemplateHeaderComponent } from './_templates/template-header/template-h
     imports: [
         BrowserModule,
         FormsModule,
-        HttpClientModule
+        HttpClientModule,
+        DragulaModule.forRoot()
     ],
     providers: [],
     bootstrap: [AppComponent]

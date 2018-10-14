@@ -1,10 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37 37">
   <defs>
     <style>
+      .cls-1, .cls-3 {
+        fill: none;
+      }
+
       .cls-1 {
-        fill: #e8e8e8;
+        stroke: #6ae2d6;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .cls-2 {
+        stroke: none;
       }
     </style>
   </defs>
-  <rect id="Rechteck_3" data-name="Rechteck 3" class="cls-1" width="20" height="20"/>
+  <g id="Gruppe_3" data-name="Gruppe 3" transform="translate(-60 -242)">
+    <g id="Rechteck_3" data-name="Rechteck 3" class="cls-1" transform="translate(60 242)">
+      <rect class="cls-2" width="37" height="37" rx="10"/>
+      <rect class="cls-3" x="0.5" y="0.5" width="36" height="36" rx="9.5"/>
+    </g>
+  </g>
 </svg>

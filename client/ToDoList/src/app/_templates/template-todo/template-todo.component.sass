@@ -7,20 +7,30 @@
 .todo
     width: 100%
     background-color: $white
-    border-left: $cube/2 $prime solid
     margin: 0 0 $cube 0
     display: flex
     flex-flow: row
-    justify-content: space-between        
+    justify-content: space-between
     align-items: stretch
     height: 100%
-    cursor: grab
     .todo-content
         width: 100%
         display: flex
         flex-flow: row
         justify-content: flex-start
-        align-items: stretch
+        align-items: center
+        .handle
+            background-color: $prime
+            height: 100%
+            display: flex
+            flex-flow: row
+            padding: 0 $cube 0 $cube
+            justify-content: center
+            align-items: center
+            cursor: grab
+            img
+                width: $cube*2
+                height: $cube*2
         .todo-content-check
             display: flex
             margin: $cube*2
@@ -29,8 +39,8 @@
             align-items: center
             cursor: pointer
             img
-                width: $cube*2
-                height: $cube*2
+                width: $cube*4
+                height: $cube*4
         .todo-content-titel
             width: 100%
             input
@@ -62,6 +72,8 @@
             align-items: center
 .todo.done
     .todo-content
+        .handle
+            display: none
         .todo-content-titel
             input
                 opacity: 0.3
