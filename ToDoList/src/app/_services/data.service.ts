@@ -22,23 +22,17 @@ export class DataService {
                 'Content-Type': 'application/json'
             })
         };
-        return this._http.post<ToDo>(`${this.serverUrl}/todo`, object, httpOptions );
+        return this._http.post<ToDo>(`${this.serverUrl}/todo`, object, httpOptions);
     }
 
     // GET
-    public getToDo(query?: string): Observable<ToDo[]> {
+    public getToDo(): Observable<ToDo[]> {
         const httpOptions = {
             headers: new HttpHeaders({
                 'Content-Type': 'application/json'
             })
         };
-        let url;
-        if (query !== undefined) {
-            url = `${this.serverUrl}/todo${query}`;
-        } else {
-            url = `${this.serverUrl}/todo`;
-        }
-        return this._http.get<ToDo[]>(url, httpOptions);
+        return this._http.get<ToDo[]>(`${this.serverUrl}/todo`, httpOptions);
     }
 
     // DELETE

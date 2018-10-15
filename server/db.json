@@ -1,46 +1,28 @@
 {
   "todo": [
     {
-      "label": "Webdesign",
-      "status": false,
-      "position": 2,
-      "id": 1
-    },
-    {
-      "label": "Illustration",
-      "status": false,
-      "position": 1,
-      "id": 2
-    },
-    {
-      "label": "Web Entwicklung",
-      "status": false,
-      "position": 5,
-      "id": 3
-    },
-    {
       "label": "UX Design",
       "status": false,
-      "position": 3,
+      "position": 2,
       "id": 4
-    },
-    {
-      "label": "Sketch",
-      "status": false,
-      "position": 4,
-      "id": 5
     },
     {
       "label": "Rechnung schreiben",
       "status": false,
-      "position": 5,
+      "position": 4,
       "id": 6
     },
     {
       "label": "Telefonieren",
       "status": false,
-      "position": 6,
+      "position": 1,
       "id": 7
+    },
+    {
+      "label": "Webdesign",
+      "status": false,
+      "position": 3,
+      "id": 8
     }
   ]
 }
