@@ -30,7 +30,10 @@ export class PageListComponent implements OnInit, OnDestroy {
         this.loadData();
 
         this._dragulaService.createGroup('todos', {
-            removeOnSpill: true
+            removeOnSpill: false,
+            moves: function (el, container, handle) {
+                return handle.className === 'handle';
+            }
         });
 
         this.subs.add(_dragulaService.drop('todos')

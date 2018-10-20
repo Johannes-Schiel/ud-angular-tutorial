@@ -1,28 +1,16 @@
 {
   "todo": [
     {
-      "label": "UX Design",
-      "status": false,
-      "position": 2,
-      "id": 4
-    },
-    {
       "label": "Rechnung schreiben",
-      "status": false,
-      "position": 4,
+      "status": true,
+      "position": 2,
       "id": 6
     },
     {
       "label": "Telefonieren",
-      "status": false,
+      "status": true,
       "position": 1,
       "id": 7
-    },
-    {
-      "label": "Webdesign",
-      "status": false,
-      "position": 3,
-      "id": 8
     }
   ]
 }

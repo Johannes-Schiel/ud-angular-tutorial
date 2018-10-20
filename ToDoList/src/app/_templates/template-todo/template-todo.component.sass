@@ -24,13 +24,14 @@
             height: 100%
             display: flex
             flex-flow: row
-            padding: 0 $cube 0 $cube
+            padding: 0 $cube*2 0 $cube*2
             justify-content: center
             align-items: center
             cursor: grab
-            img
-                width: $cube*2
-                height: $cube*2
+            background-image: url('../../../assets/svg/drag.svg')
+            background-position: center center
+            background-repeat: no-repeat
+            background-size: $cube*2 $cube*2
         .todo-content-check
             display: flex
             margin: $cube*2
