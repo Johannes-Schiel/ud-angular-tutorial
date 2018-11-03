@@ -1,6 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ToDo } from '../../_interface/todo';
-import { EventPing } from '../../_interface/eventping';
 import { DataService } from '../../_services/data.service';
 
 @Component({
@@ -11,7 +10,6 @@ import { DataService } from '../../_services/data.service';
 export class TemplateTodoComponent implements OnInit {
 
     @Input() toDo$: ToDo;
-    @Output() ping: EventEmitter<any> = new EventEmitter<any>();
     public lastKeypress: number;
     public timeStamp: number;
 
@@ -24,11 +22,7 @@ export class TemplateTodoComponent implements OnInit {
     // Function to update the Label
     public changeLabel(event?: any): void {
         this._dataService.putToDo(this.toDo$).subscribe((data: ToDo) => {
-            const eventObject: EventPing = {
-                label: 'label',
-                object: this.toDo$
-            };
-            this.ping.emit(eventObject);
+            this._dataService.getGlobalData();
         }, error => {
             console.log(`%cERROR: ${error.message}`, `color: red; font-size: 12px;`);
         });
@@ -38,11 +32,7 @@ export class TemplateTodoComponent implements OnInit {
     public changeCheck(event?: any): void {
         this.toDo$.status = !this.toDo$.status;
         this._dataService.putToDo(this.toDo$).subscribe((data: ToDo) => {
-            const eventObject: EventPing = {
-                label: 'check',
-                object: this.toDo$
-            };
-            this.ping.emit(eventObject);
+            this._dataService.getGlobalData();
         }, error => {
             console.log(`%cERROR: ${error.message}`, `color: red; font-size: 12px;`);
         });
@@ -51,11 +41,7 @@ export class TemplateTodoComponent implements OnInit {
     // Function to Delete this Element
     public deleteToDo(): void {
         this._dataService.deleteToDo(this.toDo$).subscribe((data: ToDo) => {
-            const eventObject: EventPing = {
-                label: 'delete',
-                object: this.toDo$
-            };
-            this.ping.emit(eventObject);
+            this._dataService.getGlobalData();
         }, error => {
             console.log(`%cERROR: ${error.message}`, `color: red; font-size: 12px;`);
         });
